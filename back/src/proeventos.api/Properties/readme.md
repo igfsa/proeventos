@@ -1,0 +1,1 @@
+No caso, está configurado para rodar http na porta 5000 e https na porta 7136
