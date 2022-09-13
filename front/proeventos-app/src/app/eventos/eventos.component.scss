@@ -1,0 +1,39 @@
+.form-check {
+  margin-left: 0.25rem;
+}
+
+#button-animated{
+  background-color:gray;
+  color: rgb(235, 235, 235);
+}
+
+.form-check-input:checked{
+  background-color:gray;
+  color: lightgrey;
+  border-color: lightgray
+}
+
+.form-check-input:hover{
+  border-color: lightgray
+}
+
+.form-check-input:focus{
+  box-shadow: lightgrey;
+}
+
+img{
+  margin: auto;
+}
+
+#btn-buscar{
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+td{
+  border-style: solid;
+  border-color: lightgray;
+  border-left-color: lightgrey;
+  border-width: 1px;
+  vertical-align: middle;
+}
