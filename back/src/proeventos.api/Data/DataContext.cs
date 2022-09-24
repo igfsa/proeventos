@@ -16,5 +16,5 @@ public class DataContext : DbContext
     // DbSet recebe a classe a ser mapeada, e, após é informado onde será feito o mapeamento
     public DbSet<Evento>? Eventos { get; set; }
 
-    private DbSet<Categoria>? Categorias { get; set; }
+    public DbSet<Categoria>? Categorias { get; set; }
 }

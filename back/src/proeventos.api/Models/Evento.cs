@@ -11,11 +11,13 @@ public class Evento
     public int EventoId { get; set;}
 
     [Required]
-    [StringLength(500)]
+    [StringLength(500, ErrorMessage = "Nome muito longo")]
     public string? Local { get; set;}
 
     [Required]
     [StringLength(11)]
+    //Alterar o formato para data 
+    //https://stackoverflow.com/questions/5252979/assign-format-of-datetime-with-data-annotations
     public string? DataEvento { get; set; }
 
     [Required]
@@ -23,12 +25,15 @@ public class Evento
     public string? Tema { get; set; }
 
     [Required]
-    [StringLength(10)]
     public int QtdPessoas { get; set; }
     
     [Required]
     [StringLength(4)]
     public string? Lote { get; set; }
+
+    [Required]
+    [Column(TypeName ="decimal(10,2)")]
+    public decimal? Valor { get; set; }
     
     [Required]
     [StringLength(300)]
@@ -37,6 +42,5 @@ public class Evento
     [Required]
     public int CategoriaId { get; set; }
 
-    [Required]
-    public Categoria Categoria { get; set; }
+    public Categoria? Categoria { get; set; }
 }

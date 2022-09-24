@@ -1,6 +1,6 @@
-<head>
+<header>
   <link rel="stylesheet" href="eventos.component.scss">
-</head>
+</header>
 <body>
   <div class="container">
 
@@ -84,6 +84,7 @@
           <th>Data</th>
           <th>Qtd Pessoas</th>
           <th>Lote</th>
+          <th>Categoria</th>
           <th>Opções</th>
           <!--<th>Categoria</th>-->
         </tr>
@@ -103,11 +104,11 @@
           <td>{{evento.dataEvento}}</td>
           <td>{{evento.qtdPessoas}}</td>
           <td>{{evento.lote}}</td>
+          <td>{{evento.categoria.nome}}</td>
           <td>
             <button type="button" class="btn-editar btn btn-primary btn-sm mr-2">Editar</button>
             <button type="button" class="btn-excluir btn btn-danger btn-sm">Excluir</button>
           </td>
-          <!--<td>{{evento.categoria.nome}}</td>-->
         </tr>
       </tbody>
       <tfoot *ngIf="!eventosFiltrados.length">

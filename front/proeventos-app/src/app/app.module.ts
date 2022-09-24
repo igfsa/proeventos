@@ -14,13 +14,15 @@ import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { NavComponent } from './nav/nav.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FormsModule } from '@angular/forms';
+import { CategoriasComponent } from './categorias/categorias.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     EventosComponent,
     PalestrantesComponent,
-      NavComponent
+      NavComponent,
+      CategoriasComponent
    ],
   imports: [
     BrowserModule,

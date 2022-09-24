@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 // Os dois namespaces acima são onde estão os atributos para Data Annotations, que nos permitem sobrescrever as configurações padrão na criação de tabelas 
 
+
 namespace proeventos.api.Models;
 
 [Table("Categorias")]
@@ -14,8 +15,10 @@ namespace proeventos.api.Models;
 
 public class Categoria
 {
-    public Categoria(){
+    public Categoria()
+    {
         Eventos = new Collection<Evento>();
+        // Boa prática iniciar a coleção
     }
     [Key]
     // Key, por estarmos usando Id, está sendo redundante
@@ -26,6 +29,5 @@ public class Categoria
     [StringLength(80)]
     public string? Nome { get; set; }
 
-    [Required]
     public ICollection<Evento> Eventos { get; set; }
 }

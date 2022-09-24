@@ -3,18 +3,19 @@
 }
 
 #button-animated{
-  background-color:gray;
+  background-color:rgb(33, 122, 255);
   color: rgb(235, 235, 235);
 }
 
 .form-check-input:checked{
-  background-color:gray;
-  color: lightgrey;
+  background-color:rgb(33, 122, 255);
+  color: rgb(54, 133, 250);
   border-color: lightgray
 }
 
 .form-check-input:hover{
-  border-color: lightgray
+  border-color: rgb(33, 122, 255);
+  cursor: pointer;
 }
 
 .form-check-input:focus{
@@ -36,4 +37,8 @@ td{
   border-left-color: lightgrey;
   border-width: 1px;
   vertical-align: middle;
+}
+
+body{
+  padding-top: 5rem;
 }

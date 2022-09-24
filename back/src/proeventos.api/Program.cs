@@ -11,6 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
+// O comando acima faz com que ao identificar referências cíclicas, as mesmas sejam ignoradas
+// (no caso, causadas ao acessar a categoria de um evento, por exemplo, que ira chamar os eventos afiliados a ela, que chamarão suas categorias e assim sucessivamente)
+
+
+
 // Corresponde à classe ConfigureServices
 
 builder.Services.AddEndpointsApiExplorer();
