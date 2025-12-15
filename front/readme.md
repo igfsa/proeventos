@@ -27,4 +27,5 @@ Instalando o ngx-bootstrap (ferramenta de integração entre o bootstrap e o ang
   adicionar no head da página o link para o css do bootstrap
 
 ** OBS.: O ngx-bootstrap atualiza aos poucos a compatibilidade com as versões. No caso da versão usada no projeto não ser a versão corrente do ngx, é necessário adicionar os recursos manualmente **
+
 É necessário realizar imports para o scss principal do projeto

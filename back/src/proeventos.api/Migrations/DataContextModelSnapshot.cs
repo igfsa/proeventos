@@ -80,7 +80,7 @@ namespace proeventos.api.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("Eventos");
+                    b.ToTable("Eventos_a");
                 });
 
             modelBuilder.Entity("proeventos.api.Models.Evento", b =>

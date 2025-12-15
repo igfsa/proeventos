@@ -33,6 +33,7 @@ Para usar bancos de dados, devemos instalar os pacotes pomelo entity framework c
     Microsoft.EntityFrameworkCore.Design
     Microsoft.EntityFrameworkCore.Tools
     Pomelo.EntityFrameworkCore.MySql
+    MySql.EntityFrameworkCore
 
   2: atraves da linha de comando 
     dotnet add package <nome do pacote>
@@ -43,39 +44,22 @@ Para usar bancos de dados, devemos instalar os pacotes pomelo entity framework c
 
 Para criar uma migration:
   $ dotnet ef migrations add <nome da migração>
+  o parâmetro -p indica indica onde está o contexto e o parâmetro -s indica onde está o projeto referência; usado em casos como clean Architecture, onde uma solução é dividida em vários projetos
+  $ dotnet ef migrations add <nome da migração> -p <contexto> -s <API>
 
 Para remover o script de migração criado:
   $ dotnet ef migrations remove <nome da migracao>
+  No caso de clean architecture, é necessário informar onde está o projeto referência
+ $ dotnet ef migrations remove <nome da migracao> -p <contexto> -s <API>
 
 Para gerar o banco de dados e as tabelas com base no script
  $ dotnet ef database update
+ No caso de clean architecture, é necessário informar onde está o projeto referência
+ $ dotnet ef database update -s <API>
+ 
 
 
 Data Annotations
 https://www.macoratti.net/13/12/c_vdda.htm
 
 
-Clean Architecture
-Por padrão, ao criarmos um projeto no vs, ocorre a organização por pastas, fazendo assim com que o projeto seja fortemente acoplado
-As regras de negócios tendem a se espalhar pelo projeto, sendo assim difícil encontra-las
-
-Para melhorar o programa, devem ser feitas algumas modificações na arquitetura do mesmo, e existem diversos modelos de arquitetura que atendem esse objetivo, sendo a clean architecture apenas uma delas 
-Todas possuem em comum alguns fatores como:
-    - Independência de Frameworks 
-    - Testabilidade
-    - Independência do Front-End
-    - Independência de um banco de dados 
-    - Independência de fatores externos
-
-    - Regras de Dependência > As camadas internas não devem ter qualquer dependência das externas nem indiretas, como nomes de variáveis e funções 
-
-    https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.cleancoder.com%2Funcle-bob%2F2012%2F08%2F13%2Fthe-clean-architecture.html&psig=AOvVaw2HzD7eXaz_tvFU_NYxuRlC&ust=1664137409132000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOicl5WhrvoCFQAAAAAdAAAAABAD
-
-    Nesse caso, serão usados 5 projetos diferentes 
-        -.Domain            Modelo de domínio, interfaces, regras de negócio
-        -.Application       Regras da aplicação, serviços, mapeamento, DTOs
-        -.Infrastructure    Lógica de acesso a dados, contexto, configurações, ORM
-        -.CrossCutting      IoC, Registro dos serviços e recursos, DI
-        -.Api               Controladores, endpoints, filtros
-
-        Os projetos serão criados com o tipo Class Library, exceto o projeto .API que será do tipo API .NET Core Web API

@@ -20,7 +20,7 @@ public class CategoriasController : ControllerBase
     {
         try
         {
-            var categorias = _context.Categorias.Take(500).AsNoTracking().Include(e => e.Eventos).Where(c => c.CategoriaId <= 500).ToList();
+            var categorias = _context.Categorias_a.Take(500).AsNoTracking().Include(e => e.Eventos).Where(c => c.CategoriaId <= 500).ToList();
             if (categorias is null)
             {
                 return NotFound();
@@ -40,7 +40,7 @@ public class CategoriasController : ControllerBase
     {
         try
         {
-            var categoria = _context.Categorias.AsNoTracking().FirstOrDefault(categoria => categoria.CategoriaId == id);
+            var categoria = _context.Categorias_a.AsNoTracking().FirstOrDefault(categoria => categoria.CategoriaId == id);
             if (categoria == null)
             {
                 return NotFound();
@@ -61,7 +61,7 @@ public class CategoriasController : ControllerBase
     {
         try
         {
-            var categoria = _context.Categorias.Take(500).AsNoTracking().FirstOrDefault(categoria => categoria.Nome == nome);
+            var categoria = _context.Categorias_a.Take(500).AsNoTracking().FirstOrDefault(categoria => categoria.Nome == nome);
             if (categoria == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ public class CategoriasController : ControllerBase
                 return BadRequest();
             }
 
-            _context.Categorias.Add(categoria);
+            _context.Categorias_a.Add(categoria);
             _context.SaveChanges();
             return new CreatedAtRouteResult("ObterCategoriaId", new { id = categoria.CategoriaId }, categoria);
         }
@@ -125,12 +125,12 @@ public class CategoriasController : ControllerBase
     {
         try
         {
-            var categoria = _context.Categorias.FirstOrDefault(categoria => categoria.CategoriaId == id);
+            var categoria = _context.Categorias_a.FirstOrDefault(categoria => categoria.CategoriaId == id);
             if (categoria is null)
             {
                 return NotFound();
             }
-            _context.Categorias.Remove(categoria);
+            _context.Categorias_a.Remove(categoria);
             _context.SaveChanges();
             return Ok(categoria);
         }

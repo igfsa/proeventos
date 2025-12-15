@@ -14,7 +14,7 @@ public class DataContext : DbContext
 
     // 7 - Definir o mapeamento de entidades para as tabelas 
     // DbSet recebe a classe a ser mapeada, e, após é informado onde será feito o mapeamento
-    public DbSet<Evento>? Eventos { get; set; }
+    public DbSet<Evento>? Eventos_a { get; set; }
 
-    public DbSet<Categoria>? Categorias { get; set; }
+    public DbSet<Categoria>? Categorias_a { get; set; }
 }

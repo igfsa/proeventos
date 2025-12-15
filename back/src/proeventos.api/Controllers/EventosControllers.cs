@@ -25,7 +25,7 @@ public class EventosController : ControllerBase
     {
         try
         { 
-            var eventos = _context.Eventos.Take(500).AsNoTracking().Include(c => c.Categoria).Where(e => e.EventoId <= 500).ToList();
+            var eventos = _context.Eventos_a.Take(500).AsNoTracking().Include(c => c.Categoria).Where(e => e.EventoId <= 500).ToList();
             // para pesquisas simples, métodos gets, não se faz necessário o rastreamento. Usar AsNoTracking nos permite tornar o programa mais leve pois remove esse recurso
             if (eventos is null)
             {
@@ -46,7 +46,7 @@ public class EventosController : ControllerBase
     {
         try
         { 
-            var evento = _context.Eventos.AsNoTracking().Include(c => c.Categoria).FirstOrDefault(evento => evento.EventoId == id);
+            var evento = _context.Eventos_a.AsNoTracking().Include(c => c.Categoria).FirstOrDefault(evento => evento.EventoId == id);
             if (evento == null)
             {
                 return NotFound();
@@ -66,7 +66,7 @@ public class EventosController : ControllerBase
     {
         try  
         { 
-            var evento = _context.Eventos.Take(500).AsNoTracking().Include(c => c.Categoria).FirstOrDefault(evento => evento.Tema == tema);
+            var evento = _context.Eventos_a.Take(500).AsNoTracking().Include(c => c.Categoria).FirstOrDefault(evento => evento.Tema == tema);
             if (evento == null)
             {
                 return NotFound();
@@ -91,7 +91,7 @@ public class EventosController : ControllerBase
                 return BadRequest();
             }
 
-            _context.Eventos.Add(evento);
+            _context.Eventos_a.Add(evento);
             _context.SaveChanges();
             return new CreatedAtRouteResult("ObterEventoId", new { id = evento.EventoId }, evento);
         }
@@ -130,12 +130,12 @@ public class EventosController : ControllerBase
     {
         try
         { 
-            var evento = _context.Eventos.FirstOrDefault(evento => evento.EventoId == id);
+            var evento = _context.Eventos_a.FirstOrDefault(evento => evento.EventoId == id);
             if (evento is null)
             {
                 return NotFound();
             }
-            _context.Eventos.Remove(evento);
+            _context.Eventos_a.Remove(evento);
             _context.SaveChanges();
             return Ok(evento);
         }
